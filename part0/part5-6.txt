@@ -1,0 +1,35 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    #part6
+
+    Note: submit button is pressed 
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: 201 created signal
+    deactivate server
+
+    Note: Javascript code document.getElementById('notes_form') adds a event handler to the submit button
+    and then changes the html code on the browser side and sends the information to the server
