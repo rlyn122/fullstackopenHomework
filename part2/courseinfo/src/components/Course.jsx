@@ -11,7 +11,7 @@ const Content = ({course}) => {
     return (
     <div>
         {course.parts.map( c => 
-            <p>
+            <p key={c.id}>
             {c.name} {c.exercises}
             </p>
         )}
